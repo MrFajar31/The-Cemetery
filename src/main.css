@@ -1,0 +1,769 @@
+@font-face {
+    font-family: 'Black and White';
+    src: url(../assets/fonts/BlackAndWhitePicture.ttf);
+}
+@font-face {
+    font-family: 'Alfa';
+    src: url(../assets/fonts/AlfaSlabOne.ttf);
+}
+@font-face {
+    font-family: 'Stardo';
+    src: url(../assets/fonts/StardosStencil-Regular.ttf);
+}
+@keyframes zoomIn {
+    to {scale: 1.5 1.5;}
+}
+@keyframes zoomIN {
+    to {scale: 1.3 1.3;}
+}
+@keyframes zoomOut {
+    to {font-size: 5em;}
+}
+
+@keyframes navbar-blur {
+    to {backdrop-filter: blur(5px);
+        background-color: var(--dark);
+        transition: 400ms linear;}
+    
+}
+@keyframes toRight {
+    to { transform: translateX(20%) !important;
+        transition: 400ms linear;}
+}
+@keyframes fadeIn {
+    0%{
+        position: absolute;
+        opacity: 0;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+    }
+    100%{
+        position: absolute;
+        opacity: 1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+@keyframes spider{
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(20deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    75%{
+        transform: rotate(-20deg);
+    }
+}
+
+:root{
+    --first     : #1E201E;
+    --second    : #3C3D37;
+    --third     : #697565;
+    --fourth    : #ECDFCC;
+    --dark      : #020912;
+}
+html{
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    transition: 400ms ease;
+}
+a{
+    text-decoration: none;
+    color: var(--fourth);
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* background-color: #000001; */
+}
+.hide{
+    display: none !important;
+    transition: 200ms ease;
+}
+.show{
+    display: block !important;
+    transition: 200ms ease;
+}
+.navBlur{
+    backdrop-filter: blur(5px);
+    background-color: var(--dark);
+    transition: 800ms ease !important;
+}
+
+
+
+/* header */
+nav{
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    backdrop-filter: blur(1px);
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: navbar-blur;
+    animation-timeline: scroll();
+}
+nav h3#logo{
+    font-family: 'Black and White';
+    font-size: 2.5em;
+    font-weight: 500;
+    margin: 0 0 0 10vw;
+    color: var(--fourth);
+    cursor: pointer;
+}
+nav h3#logo svg{
+    position: relative;
+    top: 5px;
+}
+nav div.button{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+nav button{
+    display: inline;
+    cursor: pointer;
+    font-family: 'Alfa';
+    font-weight: lighter;
+    width: 5.5em;
+    height: 2em;
+    margin: 0 0.5em;
+    border-radius: 1em;
+    border: none;
+    color: var(--fourth);
+    background-color: transparent;
+    transition: 100ms linear;
+}
+nav button:hover{
+    background-color: var(--third);
+    transition: 200ms linear;
+}
+nav button:active{
+    background-color: var(--fourth);
+    color: var(--third) !important;
+    transition: 200ms linear;
+}
+nav button a:active{
+    color: var(--third) !important;
+    transition: 200ms linear;
+}
+nav div.profileOrSettings{
+    position: absolute;
+    top: 15%;
+    right: 0;
+    margin: 0 10vw 0 0;
+    width: 2.7em;
+    height: 2.7em;
+    /* background-color: #020912; */
+    border-radius: 2em;
+    transition: 200ms ease;
+}
+nav div.profileOrSettings:hover{
+    background-color: var(--third);
+    transition: 200ms ease;
+
+}
+nav div.profileOrSettings:active{
+    background-color: var(--fourth);
+    transition: 200ms ease;
+}
+nav div.profileOrSettings svg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    color: var(--fourth);
+    /* margin: 0 10vw 0 0; */
+}
+nav svg#profile{
+    position: absolute;
+    display: block;
+}
+nav svg#profile:active{
+    color: var(--third) !important;
+}
+nav svg#settings{
+    display: none;
+}
+/* socond Bar */
+div#secondBar{
+    width: 100vw;
+    height: 5vh;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    display: none;
+    top: 10vh;
+    left: -100vw;
+    z-index: 999;
+    justify-content: space-around;
+    font-family: 'Alfa';
+    color: var(--fourth);
+    font-weight: 100;
+    align-items: center;
+    transition: 400ms ease-in-out;
+
+}
+.showMobileNav{
+    left: 0vw !important;
+    transition: 400ms ease-in-out forwards;
+}
+div#secondBar div.secondBarBtn{
+    cursor: pointer;
+    /* background-color: red; */
+    padding: 2px 1em;
+    border-radius: 2em;
+}
+div#secondBar div.secondBarBtn:hover{
+    background-color: var(--third);
+}
+div#secondBar div.secondBarBtn:active{
+    background-color: var(--fourth);
+    color: var(--third);
+}
+
+/* main */
+/* section */
+section div#hero{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    justify-content: center;
+}
+section div#hero img{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    scale: 1 1;
+}
+section div#hero img#spiderHome{
+    width: 100%;
+    filter: contrast(10);
+    animation: zoomIN linear;
+    animation-timeline: scroll();
+    opacity: 0.9;
+}
+section div#hero img#spiderHanging{
+    width: 100px;
+    height:375px;
+    position: absolute;
+    left: 100px;
+    top: -30%;
+    animation: spider 2s linear infinite;
+    /* border: 1px solid red; */
+}
+section div#hero img#hero-background{
+    animation: zoomIn linear;
+    animation-timeline: scroll();
+}
+section div#hero img#hero-gate-left{
+    transform: translateX(-10%);
+}
+section div#hero img#hero-gate-right{
+    transform: translateX(11.8%);
+
+}
+section div#hero div#wellcome{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section div#hero div#wellcome h1{
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--third);
+    text-transform: uppercase;
+    font-family: 'Black and White';
+    font-size: 10em;
+    font-weight: 300;
+    filter: drop-shadow(0 0 20px White);
+    transition: 400ms linear;
+    animation: zoomOut linear;
+    animation-timeline: scroll();
+}
+/* canvas */
+canvas{
+    /* z-index: 99; */
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+    position: absolute;
+    width: 100vw;
+    height: 200px;
+    bottom: 8.5vh;
+}
+/* aside */
+aside{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    /* max-height: 80vh; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+aside #gallery{
+    /* display: none; */
+    position: relative;
+    margin-top: 10vh;
+    bottom: -100vw;
+    left: 0vw;
+    width: 100vw;
+    height: 90vh;
+    /* backdrop-filter: blur(10px); */
+
+    /* background-color: #fff; */
+    transition: 500ms ease;
+}
+aside #gallery .row{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    /* background-color: red; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    transition: 400ms linear;
+}
+
+aside #gallery .row .img-background:hover{
+    transform: scale(110%);
+    transition: 200ms linear;
+}
+aside #gallery .row .img-background:not(:hover){
+    transform: scale(90%);
+    transition: 200ms linear;
+}
+
+aside #gallery .row .img-background{
+    position: relative;
+    /* display: inline-flex; */
+    /* flex-wrap: wrap; */
+    width: 10em;
+    height: 11.7em;
+    max-height: 10em;
+    overflow: hidden;
+    background-color: white;
+    transition: 400ms linear;
+    filter: drop-shadow(0 0 80px black);
+    /* margin: 1em; */
+}
+
+aside #gallery .row .img-background img{
+    width: 10em;
+    height: 10em;
+    cursor: pointer;
+}
+aside #gallery .row .img-background img:hover ~ h3#price{
+    /* cursor: pointer; */
+    top: -2.4em !important;
+    transition: 400ms linear;
+}
+
+aside #gallery .row .img-background h3#price{
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    text-align: center;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    transition: 400ms linear;
+}
+aside #gallery .row .img-background h3#price:hover{
+    top: -2.4em !important;
+    transition: 400ms linear;
+}
+aside #gallery .row h1{
+    font-family: 'Black and White';
+    font-size: 4em;
+    font-weight: 100;
+    text-shadow: 0 0 10px black;
+    text-transform: capitalize;
+    position: absolute;
+    color: var(--fourth);
+}
+
+.showGallery{
+    bottom: 0vw !important;
+    display: block !important;    
+    transition: 500ms 500ms ease;
+}
+.followGallery{
+    transition: 400ms ease !important;
+    width: 70vw !important;
+}
+.showMyProfile{
+    right: 0vw !important;    
+    transition: 200ms ease !important;
+
+}
+
+aside #myProfile{
+    position: absolute;
+    margin-top: 10vh;
+    bottom: 0;
+    right: -100vw;
+    width: 30vw;
+    height: 90vh;
+    /* background-color: rgba(2, 9, 18, 0.5); */
+    /* backdrop-filter: blur(10px); */
+    transition: 400ms ease;
+    overflow: hidden;
+
+}
+aside #myProfile img{
+    /* width: 100%; */
+    left: 60%;
+    transform: translateX(-50%);
+    position:absolute ;
+}
+
+
+
+/* footer */
+footer{
+    position: relative;
+    margin: -2em 0 0 0;
+    padding: 0;
+    background-color: var(--dark);
+    width: 100vw;
+    height: 60vh;
+}
+footer button#musicBtn{
+    cursor: pointer;
+    position: fixed;
+    bottom: 1.2em;
+    right: 1.2em;
+    width: 3em;
+    height: 3em;
+    border-radius: 3em;
+    border: none;
+    background-color: blue;
+    transition: 200ms ease;
+}
+label#music{
+    cursor: pointer;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 3em;
+    border: none;
+    /* background-color: red; */
+    transition: 200ms ease;
+}
+label#music:hover{
+    background-color: var(--third);
+    transition: 200ms ease;
+}
+label#music:active{
+    background-color: var(--fourth);
+    transform: translateY(-1.2em);
+    transition: 200ms ease;
+}
+label#music svg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--fourth);
+    transition: 200ms ease;
+}
+label#music svg#play{
+    display: block;
+}
+label#music svg#pause{
+    display: none;
+}
+label#music svg:active{
+    color: var(--third);
+    transition: 200ms ease;
+}
+footer #about{
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: green; */
+    width: 80%;
+    animation: fadeIn;
+    animation-timeline: view(100% auto);
+}
+footer #about h2{
+    font-family: 'Alfa';
+    font-weight: 100;
+    font-size: 2em;
+    text-align: center;
+    color: var(--fourth);
+}
+footer #about p{
+    font-family: 'stardo';
+    font-weight: lighter ;
+    font-size: 1.2em;
+    text-align: center;
+    color: var(--fourth);
+}
+footer #about q{
+    font-size: 1.6em;
+}
+
+
+ /* profile */
+form{
+    height: 60%;
+    width: 60%;
+    background-color: rgba(8,7,16,0.8);
+    backdrop-filter: none;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    /* backdrop-filter: blur(7px); */
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    justify-content: center;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: var(--fourth);
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 0px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: 500;
+}
+input{
+    display: block;
+    position: relative;
+    height: 40px;
+    width: 93%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button#login{
+    margin-top: 30px;
+    width: 100%;
+    /* margin-bottom: 0em; */
+    background-color: var(--fourth);
+    color: var(--third) !important;
+    padding: 15px 0;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button#login:active{
+    background-color: var(--third);
+    color: var(--fourth) !important;
+
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 7em;
+  height: 1.5em;
+  border-radius: 3px;
+  font-size: 0.7em;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.17);
+  color: var(--fourth);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  /* margin-left: 1px; */
+  position: absolute;
+  right: 15%;
+}
+.social .go{
+  /* margin-left: 1px; */
+  position: absolute;
+  left: 15%;
+}
+.social i{
+  margin-right: 1px;
+}
+
+
+
+
+
+/* mobile */
+@media screen and (max-width: 425px) {
+    nav div.button{
+        display: none;
+    }
+    nav svg#settings{
+        display: inline;
+    }
+    section div#hero{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    div#secondBar{
+        display: inline-flex !important;
+    }
+    section div#hero img{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150vw;
+        height: 100vh;
+        scale: 1 1;
+    }
+    section div#hero img#hero-background{
+        animation: none !important;
+    }
+    section div#hero img#hero-tree-left{
+        transform: translateX(-10%);
+    }
+    section div#hero img#hero-tree-right{
+        transform: translateX(-52%);
+    }
+    section div#hero img#hero-gate-left{
+        transform: translateX(-30%);
+    }
+    section div#hero img#hero-gate-right{
+        transform: translateX(-35%);
+        animation: toRight linear !important;
+        animation-timeline: scroll();
+    }
+    /* section div#hero img#hero-gate-right{
+        transform: translateX(-35%);
+    } */
+    section div#hero div#wellcome{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    section div#hero div#wellcome h1{
+        font-size: 4em;
+    }
+    
+    /* footer */
+    footer{
+        position: relative;
+        margin: -2em 0 0 0;
+        padding: 0;
+        background-color: var(--dark);
+        width: 100vw;
+        height: 100vh;
+    }
+    footer #about h2{
+        font-family: 'Alfa';
+        font-weight: 100;
+        font-size: 2em;
+        text-align: center;
+        color: var(--fourth);
+    }
+
+    footer #about q{
+        font-size: 0.8em;
+    }
+    aside #gallery{
+        display: none;
+        position: absolute;
+        margin-top: 10vh;
+        /* bottom: -100vw; */
+        left: -100vw;
+        width: 100vw;
+        height: 0vh;
+        /* backdrop-filter: blur(10px); */
+    
+        /* background-color: #fff; */
+        transition: 500ms ease;
+    }
+    aside #gallery .row h1{
+        font-size: 2em;
+        top: -2.2em;
+    }
+    aside #gallery .row .img-background{
+        margin-top: em;
+    }
+    .showGallery{
+        top: 10vh;
+        width: 100vw;
+        left: 0vw !important;
+        display: block !important;    
+        transition: 500ms 500ms ease;
+    }
+    div#myProfile{
+        width: 100vw;
+    }
+    div#myProfile form{
+        background-color: rgba(8,7,16,0.8);
+        backdrop-filter: none;
+        height: 47%;
+    }
+}
+/* all to desktop */
+@media screen and (min-width: 767px) and (max-width: 768px) {
+    section div#hero div#wellcome h1{
+        top: 25%;
+        font-size: 6em;
+    }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Cemetery</title>
+    <link rel="icon" href="../assets/svg/ghost.svg" type="image/x-icon"/>
+
+    <!-- ukuran 378px x 767px in 75% view -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+</head>
+<body id="body" x-data="nft">
+    <header>
+        <nav id="navbar">
+            <h3 id="logo">
+                <?xml version="1.0" encoding="iso-8859-1"?>
+                <svg fill="#ECDFCC" height="40px" width="40px" version="1.1" id="ghost" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                     viewBox="0 0 512 512" xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M256,0C150.86,0,65.321,85.578,65.321,190.778v300.975c0,3.342,1.49,6.468,4.263,8.33c2.783,1.872,6.233,2.225,9.301,0.96
+                            c19.993-8.164,76.253-29.362,96.521-29.362c7.791,0,23.793,9.35,37.935,17.592c17.798,10.379,36.183,21.11,51.433,22.512
+                            c1.627,0.147,3.207,0.216,4.756,0.216c20.62,0,35.583-12.545,48.892-23.708c9.754-8.183,18.974-15.916,28.323-16.641
+                            c39.986-3.107,83.224,27.922,83.655,28.226c3.048,2.215,7.272,2.519,10.624,0.813c3.361-1.715,5.655-5.165,5.655-8.938V190.778
+                            C446.679,85.578,361.14,0,256,0z M426.608,473.651c-17.563-10.271-49.855-24.443-81.237-22.012
+                            c-15.769,1.225-28.01,11.418-39.761,21.277c-12.407,10.398-24.085,20.248-38.972,18.876c-10.81-0.99-28.022-11.016-43.184-19.856
+                            c-18.709-10.908-34.696-20.326-47.905-20.326c-21.414,0-67.577,16.387-90.158,25.383V190.778
+                            c0-94.124,76.532-170.706,170.608-170.706s170.608,76.582,170.608,170.706V473.651z"/>
+                    </g>
+                </g>
+                <g>
+                    <g>
+                        <path d="M175.361,170.608c-38.732,0-70.25,31.519-70.25,70.25c0,38.732,31.519,70.25,70.25,70.25s70.25-31.519,70.25-70.25
+                            C245.612,202.126,214.093,170.608,175.361,170.608z M175.361,291.037c-27.667,0-50.179-22.512-50.179-50.179
+                            c0-27.667,22.512-50.179,50.179-50.179c27.667,0,50.179,22.512,50.179,50.179C225.54,268.525,203.028,291.037,175.361,291.037z"/>
+                    </g>
+                </g>
+                <g>
+                    <g>
+                        <path d="M335.933,170.608c-38.732,0-70.25,31.519-70.25,70.25c0,38.732,31.519,70.25,70.25,70.25s70.25-31.519,70.25-70.25
+                            C406.184,202.126,374.665,170.608,335.933,170.608z M335.933,291.037c-27.667,0-50.179-22.512-50.179-50.179
+                            c0-27.667,22.512-50.179,50.179-50.179c27.667,0,50.179,22.512,50.179,50.179C386.112,268.525,363.6,291.037,335.933,291.037z"/>
+                    </g>
+                </g>
+                </svg>
+                <span>Cemetery</span>
+            </h3>
+            <div class="button">
+                <button id="homeBtn"><a href="#hero">Home</a></button>
+                <button id="aboutBtn"><a href="#footer">About</a></button>
+                <button id="galleryBtn">Gallery</button>
+            </div>
+            <div class="profileOrSettings">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="profile"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </nav>
+        <div id="secondBar">
+            <div class="secondBarBtn" id="secondBar-HomeBtn"><a href="#hero">Home</a></div>
+            <div class="secondBarBtn" id="secondBar-AboutBtn"><a href="#footer">About</a></div>
+            <div class="secondBarBtn" id="secondBar-GalleryBtn">Gallery</div>
+        </div>
+    </header>
+    
+    <main>
+        <section>
+            <div id="hero">
+                <img src="../assets/images/background.png" id="hero-background">
+                <img src="../assets/images/tree-left.png" id="hero-tree-left">
+                <img src="../assets/images/tree-right.png" id="hero-tree-right">
+                <img src="assets/spiderhome.png" id="spiderHome">
+                <img src="assets/hangingspider.png" id="spiderHanging">
+                <div id="wellcome">
+                    <h1 id="text-wellcome">welcome</h1>
+                </div>
+                <canvas id="character"></canvas>
+                <img src="../assets/images/gate-left.png" id="hero-gate-left">
+                <img src="../assets/images/gate-right.png" id="hero-gate-right">
+                <img src="../assets/images/grass.png" id="hero-grass">
+            </div>z
+        </section>
+        
+    </main>
+    <footer id="footer">
+        <!-- <button id="musicBtn"></button> -->
+        <article id="about">
+            <h2>Apa itu Cemetery?</h2>
+            <p> Kata ini pertama kali digunakan pada tahun 1400-an dan berasal dari kata Yunani <i>koimētērion</i>, yang berarti "kamar tidur" atau "tempat pemakaman". Saat ini penggunaan kata <i>Cemetery </i> sangatlah jarang dan dianggap kuno dari pada kata <i>Graveyard</i> yang lebih modern. Walau demikian, sampai kapanpun <i>Cemetery</i> akan tetap menjadi kata pilihan terbaik para deklamator pemakaman dalam menjalankan tugas. <br><br>
+            <q>Ketakutan tidak menghentikan kematian, ia hanya menghentikan kehidupan.</q><br>
+            <a href="https://www.instagram.com/fajarrahmadw_?igsh=MWprOWNkNmRzN205Ng==">
+                @fajarrahmadw_
+            </a>
+            </p>
+        </article>
+    </footer>
+    <aside>
+        <div id="gallery">
+            <div class="row">
+                <template x-for="(images, index) in images" x-keys="index">
+                    <div class="card img-background">
+                        <img :src="`${images.img}`" :id="images.id">
+                        <h3 id="price">$ 1.54 ,-</h3>
+                    </div>
+                </template>
+                <h1 id="choose">choose your favorite NFT</h1>
+            </div>
+            
+        </div>
+        <div id="myProfile">
+            <form>
+                <h3>Login Here</h3>
+        
+                <label for="username">Username</label>
+                <input type="text" placeholder="Email or Phone" id="username">
+        
+                <label for="password">Password</label>
+                <input type="password" placeholder="Password" id="password">
+        
+                <button id="login">Log In</button>
+                <div class="social">
+                  <div class="go"><i class="fab fa-google"></i>  Google</div>
+                  <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+                </div>
+            </form>
+            <!-- <img src="../assets/images/profile.png" alt=""> -->
+        </div>
+    </aside>
+    <label for="button" id="music">
+        <input type="button" name="music" id="" style="display: none;">
+        <!-- <button id="music"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="play-circle" id="play"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pause-circle" id="pause"><circle cx="12" cy="12" r="10"></circle><line x1="10" y1="15" x2="10" y2="9"></line><line x1="14" y1="15" x2="14" y2="9"></line></svg>
+        <!-- </button> -->
+    </label>
+    <script src="main.js"></script>
+    <script src="Character.js"></script>
+    <script src="Images.js"></script>
+</body>
+</html>
